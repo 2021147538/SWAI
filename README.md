@@ -83,13 +83,19 @@ title-author 조합이 중복되지 않도록 필터링
 
 ReadingTree/
 ├── public/                  # index.html, style.css, JS 등 프론트 리소스
+
 ├── huggingface_server/      # FastAPI 서버, OpenAI 연동 코드
+
 │   ├── main.py
+
 │   ├── requirements.txt
+
 │   └── Dockerfile
+
 └── README.md
 
-*중요!!
+
+#*중요!!
 현재 github 코드에서는 openai api key가 없기 때문에 로컬에서 백엔드를 구동할 수 없다. main.py 에서 openai api key를 설정하거나
 https://readingtree.netlify.app/
 에서 실행해 볼 수 있다. 백엔드는 huggingface에 구동되고 있어 기능이 구현되어 있다.

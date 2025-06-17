@@ -1,0 +1,6 @@
+fastapi==0.111.0
+uvicorn[standard]            # uvicorn + gunicorn 등 서버 런타임
+slowapi                      # rate-limit
+openai
+requests                     # ← 오류 원인
+python-dotenv 

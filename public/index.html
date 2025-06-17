@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Reading Tree</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">	
+<!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- Responsive-->
+<link rel="stylesheet" href="css/responsive.css">
+<!-- fevicon -->
+<link rel="icon" href="images/ReadingTree_logo.png" sizes="32x32" href="/favicon-32x32.png" />
+<!-- Tweaks for older IEs-->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/plugin.js"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.css" rel="stylesheet">
+<link
+  href="https://cdn.jsdelivr.net/gh/dinoqqq/simple-popup@master/dist/jquery.simple-popup.min.css"
+  rel="stylesheet"
+/>
+<script src="https://cdn.jsdelivr.net/gh/dinoqqq/simple-popup@master/dist/jquery.simple-popup.min.js"></script>
+
+<script type="text/javascript" src="js/responsee.js"></script>
+<script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="js/template-scripts.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+	.logo img {
+	  max-width: 120px;
+	  height: auto;
+	}
+	.site-title {
+		margin: 0 0 0 0.5rem;
+  		font-size: 1.5rem;
+  		font-weight: bold;
+	}
+
+	.navbar .d-flex {
+  		flex-shrink: 0;
+	}
+	/* Hero 배너 */
+	.header_section {
+    	position: fixed;
+    	top: 0; left: 0;
+    	width: 100vw !important;
+		background-color: #929292;
+		height: 80px;
+    	z-index: 1000;
+	}
+	.header_section .navbar.bg-light {
+    	background-color: #b7b7b7 !important;  /* 원하시는 색으로 */
+    	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    	height: 80px;                          /* 헤더 높이 */
+    	padding: 0;                            /* 위아래 여백 제거 */
+    }
+	body {padding-top: 80px; /* 헤더 실제 높이에 맞춰 조정 (예: 60px~80px) */}
+
+	.hero-banner {
+		position: relative;
+		width: 100%;
+		height: 400px;                 /* 원하는 높이로 조정 */
+		background-image: url('images/book_display.png');
+		background-size: cover;
+		background-position: center;
+  		background-repeat: no-repeat;
+	}
+
+	/* 어두운 반투명 레이어 (텍스트 가독성 확보) */
+	.hero-banner .hero-overlay {
+		position: absolute;
+		top: 0; left: 0; right: 0; bottom: 0;
+		background: rgba(0, 0, 0, 0.4);  /* 검정 40% 투명 */
+		display: flex;
+		flex-direction: column;
+		justify-content: center;        /* 세로 중앙 정렬 */
+		align-items: center;            /* 가로 중앙 정렬 */
+		color: #fff;
+		text-align: center;
+		padding: 0 1rem;
+	}
+
+	/* 타이틀과 부제목 */
+	.hero-title {
+		font-size: 3rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.hero-subtitle {
+		font-size: 1.25rem;
+	}
+</style>
+
+<style>
+	input, textarea, button {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+	color: #333;
+	}
+</style>
+
+</head>
+<body>
+	<!--header section start -->
+	<div class="header_section">
+		<div class="container-fluid">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="logo d-flex align-items-center mr-auto">
+                <a href="index.html"><img src="images/ReadingTree_logo.png"></a><h1 class="ml-2 mb-0 site-title">Reading Tree</h1>
+				</div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="#HOME">HOME</a></li>
+					<li class="nav-item"><a class="nav-link" href="#CONCEPT">CONCEPT</a></li>
+					<li class="nav-item"><a class="nav-link" href="#FAQ">FAQ</a></li>
+					<li class="nav-item"><a class="nav-link" href="#PAGE">PAGE</a></li>
+					<li class="nav-item"><a class="nav-link" href="#CONTACT">CONTACT</a></li>
+                  </ul>
+                </div>
+            </nav>
+		</div>
+	</div>
+	<!--header section end -->
+
+	<section id="HOME" class="hero-banner">
+		<div class="hero-overlay">
+		  <h1 class="hero-title">Reading Tree</h1>
+		  <p class="hero-subtitle">당신의 평생 독서 생활을 위해</p>
+		</div>
+	</section>	
+
+	<section id="CONCEPT" class="py-5 bg-light">
+		<div class="container">
+			<h2 class="text-center mb-0">한권씩 쌓아올리는 독서 습관</h2>
+			<p class="text-center mb-0">책을 분야별로 제대로 읽고 싶은 사람</p>
+			<p class="text-center mb-xl">무슨 책을 읽어야 할지 모르는 사람들에게 …</p>
+
+			<h2 class="text-center mb-4">Reading Tree의 핵심 기능</h2>
+			<div class="row">
+				<div class="col-md-4 text-center">
+					<i class="fa fa-book fa-3x mb-2"></i>
+					<h4>맞춤형 추천</h4>
+					<p>분야·난이도별로 읽을 책의 순서를 제안해요.</p>
+				</div>
+				<div class="col-md-4 text-center">
+			  		<i class="fa fa-star fa-3x mb-2"></i>
+			  		<h4>점수화 & 랭킹</h4>
+			  		<p>읽은 책의 양·난이도에 따라 점수를 매깁니다.</p>
+				</div>
+				<div class="col-md-4 text-center">
+			  		<i class="fa fa-bell fa-3x mb-2"></i>
+			  		<h4>동기부여 알림</h4>
+			  		<p>읽지 않으면 알림, 목표 달성 시 배지를 드려요.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="PAGE" class="py-5">
+		<div class="container">
+			<h2 class="text-center mb-4">화면 예시</h2>
+		  
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs justify-content-center mb-4" id="recTab" role="tablist">
+				<li class="nav-item">
+			  		<a class="nav-link active" id="home-tab" data-toggle="tab" href="#homeView" role="tab" ria-controls="homeView" aria-selected="true">
+						<i class="fa fa-home"></i> Home
+			  		</a>
+				</li>
+				<li class="nav-item">
+			  		<a class="nav-link" id="search-tab" data-toggle="tab" href="#searchView" role="tab" aria-controls="searchView" aria-selected="false">
+						<i class="fa fa-search"></i> Search
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="score-tab" data-toggle="tab" href="#scoreView" role="tab" aria-controls="scoreView" aria-selected="false">
+						<i class="fa fa-star"></i> Score
+				  	</a>
+			  	</li>
+				<li class="nav-item">
+					<a class="nav-link" id="score-tab" data-toggle="tab" href="#alarmView" role="tab" aria-controls="alarmView" aria-selected="false">
+						<i class="fa fa-bell"></i> Alarm
+				  	</a>
+			  	</li>
+			</ul>
+	  
+		 	<!-- Tab panes -->
+			<div class="tab-content">
+				<!-- Home 화면 -->
+				<div class="tab-pane fade show active" id="homeView" role="tabpanel" aria-labelledby="home-tab">
+					<div class="row justify-content-center">
+						<div class="col-md-6">
+							<img src="images/home_screen.png" alt="Home Screen" class="img-fluid rounded shadow-sm">
+						</div>
+			  		</div>
+				</div>
+			
+				<!-- Search 화면 -->
+				<div class="tab-pane fade" id="searchView" role="tabpanel" aria-labelledby="search-tab">
+					<div class="row justify-content-center">
+						<div class="col-md-6">
+							<img src="images/search_screen.png" alt="Search Screen" class="img-fluid rounded shadow-sm">
+						</div>
+					</div>
+				</div>
+				<!-- Score 화면 -->
+				<div class="tab-pane fade" id="scoreView" role="tabpanel" aria-labelledby="search-tab">
+					<div class="row justify-content-center">
+						<div class="col-md-6">
+							<img src="images/score_screen.png" alt="Score Screen" class="img-fluid rounded shadow-sm">
+						</div>
+					</div>
+				</div>
+				<!-- Alarm 화면 -->
+				<div class="tab-pane fade" id="alarmView" role="tabpanel" aria-labelledby="search-tab">
+					<div class="row justify-content-center">
+						<div class="col-md-6">
+							<img src="images/alarm_screen.png" alt="Alarm Screen" class="img-fluid rounded shadow-sm">
+						</div>
+					</div>
+				</div>
+		  	</div>
+		</div>
+	</section>
+
+  <!-- ───── AI 추천 섹션 ───── -->
+  <section id="RECOMMEND" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">AI 추천</h2>
+      <div class="row justify-content-center mb-4">
+        <div class="col-lg-6 col-md-8">
+          <div class="input-group">
+            <input id="prompt-input" type="text" class="form-control"
+                   placeholder="예: '인문학 입문서', '프로그래밍 기초'"/>
+            <button id="go-btn" type="button" class="btn btn-primary">
+              추천받기
+            </button>
+            <span id="spinner" class="spinner-border spinner-border-sm ms-2"
+                  role="status" aria-hidden="true" style="display:none;"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8" id="recommendation-list"></div>
+      </div>
+      <div class="row justify-content-center mt-2">
+        <div class="col-lg-6 col-md-8 text-center">
+          <button id="more-btn" class="btn btn-outline-secondary" style="display:none;"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+	
+	<section id="FAQ" class="py-5">
+		<div class="container">
+		  <h2 class="text-center mb-4">자주 묻는 질문</h2>
+	  
+		  <div id="faqAccordion">
+			<!-- FAQ item 1 -->
+			<div class="card">
+			  <div class="card-header" id="headingOne">
+				<h5 class="mb-0">
+				  <button class="btn btn-link collapsed" 
+						  data-toggle="collapse" 
+						  data-target="#collapseOne" 
+						  aria-expanded="false" 
+						  aria-controls="collapseOne">
+					Q1. 책 난이도는 어떻게 측정하나요?
+				  </button>
+				</h5>
+			  </div>
+			  <div id="collapseOne" 
+				   class="collapse" 
+				   aria-labelledby="headingOne" 
+				   data-parent="#faqAccordion">
+				<div class="card-body">
+				  책의 페이지 수, 리뷰 평점, 독자 레벨 데이터를 종합해 난이도를 산출합니다.
+				</div>
+			  </div>
+			</div>
+	  
+			<!-- FAQ item 2 -->
+			<div class="card">
+			  <div class="card-header" id="headingTwo">
+				<h5 class="mb-0">
+				  <button class="btn btn-link collapsed" 
+						  data-toggle="collapse" 
+						  data-target="#collapseTwo" 
+						  aria-expanded="false" 
+						  aria-controls="collapseTwo">
+					Q2. 점수는 어떻게 부여되나요?
+				  </button>
+				</h5>
+			  </div>
+			  <div id="collapseTwo" 
+				   class="collapse" 
+				   aria-labelledby="headingTwo" 
+				   data-parent="#faqAccordion">
+				<div class="card-body">
+				  읽은 책의 난이도 × 분량(페이지 수)에 따라 점수를 계산해드립니다.
+				</div>
+			  </div>
+			</div>
+	  
+			<!-- FAQ item 3 -->
+			<div class="card">
+			  <div class="card-header" id="headingThree">
+				<h5 class="mb-0">
+				  <button class="btn btn-link collapsed" 
+						  data-toggle="collapse" 
+						  data-target="#collapseThree" 
+						  aria-expanded="false" 
+						  aria-controls="collapseThree">
+					Q3. 알림과 배지 기능은 어떠한가요?
+				  </button>
+				</h5>
+			  </div>
+			  <div id="collapseThree" 
+				   class="collapse" 
+				   aria-labelledby="headingThree" 
+				   data-parent="#faqAccordion">
+				<div class="card-body">
+				  미달성 목표 시 알림을, 특정 점수 달성 시 배지를 지급해 독서 동기를 부여합니다.
+				</div>
+			  </div>
+			</div>
+	  
+		  </div>
+		</div>
+	</section>
+
+
+	<!--contact section start -->
+	<section id="CONTACT" class="py-5">
+		<center>
+			<p>이메일을 남겨주시면 서비스가 런칭되었을 때 알림을 드리겠습니다. </p>
+			<input id="submit-email" type="email" placeholder="알림을 받으실 이메일" /> <br><br>
+			<p>서비스가 이렇게 되었으면 좋겠다는 조언을 해 주세요 </p>
+			<textarea id="submit-advice" name="Text1" cols="40" rows="5" placeholder="서비스에 대한 조언을 남겨주세요"></textarea><br>
+			<button style="width:350px;" id="submit">지금 제출! </button>
+		</center>
+	</section>
+	<div id="popup" style="display:none;">
+		<h1>감사합니다. </h1>
+		<p>더 나은 앱을 만들겠습니다</p>
+	</div>
+
+	<div class="copyright_section">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<p class="copyright_text">2025 All Rights Reserved Design by <a href="https://html.design/"> Reading Tree</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--contact section end -->
+
+	<!-- Javascript files-->
+    <!-- sidebar -->
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+    <!-- javascript --> 
+    <script src="js/owl.carousel.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+	<script type="application/javascript">
+		var ip = "null";
+		function getIP(json) {
+			console.log(json);
+			try {
+				ip = json.ip;
+			} catch (e) {
+			ip = 'unknown';
+			}
+			return;
+		}
+	</script>
+	<script type="application/javascript" src="https://jsonip.com?format=jsonp&callback=getIP"></script>
+	
+
+    <script>
+	var mobile = 'desktop';
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+		// true for mobile device
+		mobile = 'mobile';
+	}
+
+    var queryString = location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const utm = urlParams.get("utm")
+
+	// Sam pading value to start with 0. eg: 01, 02, .. 09, 10, ..
+	function padValue(value) {
+		return (value < 10) ? "0" + value : value;
+	}
+
+	function getTimeStamp() {
+		const date = new Date();
+
+		const year = date.getFullYear();
+		const month = date.getMonth() + 1;
+		const day = date.getDate();
+		const hours = date.getHours();
+		const minutes = date.getMinutes();
+		const seconds = date.getSeconds();
+
+		const formattedDate = `${padValue(year)}-${padValue(month)}-${padValue(day)} ${padValue(hours)}:${padValue(minutes)}:${padValue(seconds)}`;
+
+		return formattedDate;
+	}
+
+    // 쿠키에서 값을 가져오는 함수
+	function getCookieValue(name) {
+		const value = "; " + document.cookie;
+		const parts = value.split("; " + name + "=");
+		if (parts.length === 2) {
+			return parts.pop().split(";").shift();
+		}
+	}
+
+	// 쿠키에 값을 저장하는 함수
+	function setCookieValue(name, value, days) {
+		let expires = "";
+		if (days) {
+			const date = new Date();
+			date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+			expires = "; expires=" + date.toUTCString();
+		}
+		document.cookie = name + "=" + (value || "") + expires + "; path=/";
+	}
+
+	function getUVfromCookie() {
+		// 6자리 임의의 문자열 생성
+		const hash = Math.random().toString(36).substring(2, 8).toUpperCase();
+		// 쿠키에서 기존 해시 값을 가져옴
+		const existingHash = getCookieValue("user");
+		// 기존 해시 값이 없으면, 새로운 해시 값을 쿠키에 저장
+		if (!existingHash) {
+			setCookieValue("user", hash, 180); // 쿠키 만료일은 6개월 
+			return hash;
+		} else {
+			// 기존 해시 값이 있으면, 기존 값을 반환
+			return existingHash;
+		}
+	}
+
+	var data = JSON.stringify({   
+		"id": getUVfromCookie(),
+        "landingUrl": window.location.href,
+        "ip": ip,
+        "referer": document.referrer,
+        "time_stamp": getTimeStamp(),
+        "utm": utm,
+        "device": mobile
+    });
+
+    $(document).ready(function () {
+		addrScript = 'https://script.google.com/macros/s/AKfycby03gdF6WmNKvpAoKGxZhdzTdYOXl-sbzYXvyRUxXJmFL_H2dWYKEdvXsN1BvoMV68HYA/exec';
+
+		$("#submit").on("click", function () {
+			const email = $("#submit-email").val();
+			const advice = $("#submit-advice").val();
+			function validateEmail(email) {
+				var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+				return re.test(email);
+			}
+		    
+			if (email == '' || !validateEmail(email)) {
+				alert("이메일이 유효하지 않아 알림을 드릴 수가 없습니다. ");
+				return;
+			}
+		    
+			var finalData = JSON.stringify({
+				"id": getUVfromCookie(),
+				"email": email,
+				"advice": advice
+			})
+			axios.get(addrScript + '?action=insert&table=tab_final&data=' + finalData)
+			.then(response => {
+				console.log(response.data.data);
+				$('#submit-email').val('');
+				$('#submit-advice').val('');
+				$.fn.simplePopup({
+					type: "html",
+        			htmlSelector: "#popup"
+				});
+			});
+		});
+		axios.get(addrScript + '?action=insert&table=visitors&data=' + data)
+		.then(response => {
+			console.log(JSON.stringify(response));
+		})
+    	.catch(error => {
+			if (error.response) {
+				// 서버가 2xx 범위를 벗어난 상태 코드로 응답한 경우
+        		console.log(error.response.data);
+            	console.log(error.response.status);
+            	console.log(error.response.headers);
+			} else if (error.request) {
+            	// 요청이 전송되었지만 응답을 받지 못한 경우
+            	console.log(error.request);
+        	} else {
+				// 요청 설정 중에 오류가 발생한 경우
+            	console.log('Error', error.message);
+			}
+			console.log(error.config);
+		});
+	});
+	</script>
+	
+	<!-- ──────── JS ──────── -->
+  	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  	<!-- Bootstrap 5 Bundle (Popper 포함) -->
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/8.5.28/jquery.meanmenu.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.js"></script>
+  	<script src="https://cdn.jsdelivr.net/gh/dinoqqq/simple-popup@master/dist/jquery.simple-popup.min.js"></script>
+  	<!-- custom.js (여기에 niceScroll, meanmenu, sticky 호출) -->
+  	<script src="/path/to/custom.js"></script>
+
+  <!-- ───── AI 추천 로직 ───── -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const API      = "https://hyunmoo22-readingtree-api.hf.space/recommend";
+      const $input   = $("#prompt-input");
+      const $goBtn   = $("#go-btn");
+      const $spinner = $("#spinner");
+      const $more    = $("#more-btn");
+      const $list    = $("#recommendation-list");
+
+      let books     = [];
+      let pageIndex = 0;
+      const pageSize = 3;
+
+      function renderBooks(items) {
+        $list.html(
+          items.map(b => `
+            <div class="card mb-3 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title mb-1">${b.title}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${b.author}</h6>
+                <p class="card-text">${b.reason}</p>
+              </div>
+            </div>`).join("")
+        );
+      }
+
+      function renderPage() {
+        const total = Math.ceil(books.length / pageSize);
+        const start = pageIndex * pageSize;
+        renderBooks(books.slice(start, start + pageSize));
+        $more.text(`다른 책 보기 ${pageIndex + 1}/${total}`);
+      }
+
+      async function fetchReco() {
+        const prompt = $input.val().trim();
+        if (!prompt) {
+          alert("질문을 입력하세요 😊");
+          return;
+        }
+
+        // 로딩 시작
+        $goBtn.prop("disabled", true).addClass("disabled").text("로딩 중…");
+        $spinner.css("display", "inline-block");
+
+        try {
+          const res = await fetch(API, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ prompt, count: 9 })
+          });
+
+          if (!res.ok) throw new Error(await res.text());
+
+          const data = await res.json();
+          books = data.books || [];
+
+          if (books.length === 0) {
+            alert("죄송합니다. 책을 찾지 못했습니다. 프롬프트를 바꿔보세요!");
+            return;
+          }
+
+          pageIndex = 0;
+          renderPage();
+          $more.toggle(books.length > pageSize);
+        } catch (err) {
+          console.error(err);
+          alert("API 오류: " + err.message);
+        } finally {
+          // 로딩 종료
+          $goBtn.prop("disabled", false).removeClass("disabled").text("추천받기");
+          $spinner.hide();
+        }
+      }
+
+      $goBtn.on("click", fetchReco);
+      $input.on("keydown", e => { if (e.key === "Enter") fetchReco(); });
+      $more.on("click", () => {
+        const total = Math.ceil(books.length / pageSize);
+        pageIndex = (pageIndex + 1) % total;
+        renderPage();
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -82,6 +82,7 @@ title-author 조합이 중복되지 않도록 필터링
 프로젝트 구조
 
 ReadingTree/
+
 ├── public/                  # index.html, style.css, JS 등 프론트 리소스
 
 ├── huggingface_server/      # FastAPI 서버, OpenAI 연동 코드
